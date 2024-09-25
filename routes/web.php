@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::redirect('/', '/dashboard-general-dashboard');
 
 // Dashboard
@@ -258,4 +247,17 @@ Route::get('/utilities-subscribe', function () {
 // credits
 Route::get('/credits', function () {
     return view('pages.credits', ['type_menu' => '']);
+});
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+
+    //data asesor 
+    Route::get('asesor/data', [AsesorController::class, 'getAsesorData'])->name('asesor.data');
+
+    Route::get('asesor', [App\Http\Controllers\AsesorController::class,'index'])->name('asesor.index');
+    Route::get('asesor/create', [App\Http\Controllers\AsesorController::class,'create'])->name('asesor.create');
+    Route::post('asesor/post',[App\Http\Controllers\AsesorController::class,'store'])->name('asesor.store');
+
 });
