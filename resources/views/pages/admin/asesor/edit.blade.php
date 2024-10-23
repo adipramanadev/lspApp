@@ -20,11 +20,14 @@
                                 <h4>Edit Data</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('asesor.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('asesor.update', $asesor->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-group">
                                         <label for="nik">NIK</label>
-                                        <input type="text" name="nik" class="form-control" maxlength="50" required>
+                                        <input type="text" name="nik" class="form-control"
+                                            value="{{ $asesor->nama }}" maxlength="50" required>
                                         @error('nik')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

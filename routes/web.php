@@ -254,5 +254,5 @@ Route::prefix('admin')->group(function(){
     Route::get('asesor/create', [App\Http\Controllers\AsesorController::class,'create'])->name('asesor.create');
     Route::post('asesor/post',[App\Http\Controllers\AsesorController::class,'store'])->name('asesor.store');
     Route::delete('asesor/delete/{id}', [App\Http\Controllers\AsesorController::class,'destroy'])->name('asesor.destroy');
-    Route::get('asesor/update/{id}',[App\Http\Controllers\AsesorController::class,'edit'])->name('asesor.edit');
+    Route::get('asesor/update/{id}',[App\Http\Controllers\AsesorController::class,'edit'])->name('asesor.update');
 });
