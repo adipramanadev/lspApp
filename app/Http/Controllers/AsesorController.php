@@ -86,9 +86,12 @@ class AsesorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Asesor $asesor)
+    public function edit($id)
     {
-        //
+        //form update 
+        $asesor  = Asesor::find($id);
+
+        return view('pages.admin.asesor.edit',compact('asesor'), ['type_menu'=>'asesor']);
     }
 
     /**
@@ -102,8 +105,13 @@ class AsesorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Asesor $asesor)
+    public function destroy($id)
     {
-        //
+        //destroy asesor 
+        $asesor = Asesor::find($id);
+        $asesor->delete();
+        //show sweet
+        return redirect()->route('asesor.index')->with('success', 'Data Asesor berhasil di delete');
+
     }
 }

@@ -45,13 +45,16 @@
                                                     <td>{{ $asesor->alamat }}</td>
                                                     <td>{{ $asesor->no_hp }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                                        <form action="#" method="post" style="display:inline;">
+                                                        <a href="{{ route('asesor.edit', $asesor->id) }}"
+                                                            class="btn btn-sm btn-primary">Edit</a>
+                                                        <form action="{{ route('asesor.destroy', $asesor->id) }}"
+                                                            method="POST" class="delete-form" style="display:inline;">
                                                             @csrf
                                                             @method('delete')
-                                                            <button type="submit"
-                                                                class="btn btn-sm btn-danger">Hapus</button>
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-danger btn-delete">Hapus</button>
                                                         </form>
+
                                                     </td>
                                                 </tr>
                                             @empty
@@ -101,5 +104,27 @@
                 text: '{{ session('error') }}',
             });
         @endif
+    </script>
+    <script>
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent the form from submitting
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if confirmed
+                        this.closest('form').submit();
+                    }
+                });
+            });
+        });
     </script>
 @endpush

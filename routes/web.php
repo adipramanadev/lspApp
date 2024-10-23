@@ -4,13 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/dashboard-general-dashboard');
 
-// Dashboard
-Route::get('/dashboard-general-dashboard', function () {
-    return view('pages.dashboard-general-dashboard', ['type_menu' => 'dashboard']);
-});
-Route::get('/dashboard-ecommerce-dashboard', function () {
-    return view('pages.dashboard-ecommerce-dashboard', ['type_menu' => 'dashboard']);
-});
+
 
 
 // Layout
@@ -259,5 +253,6 @@ Route::prefix('admin')->group(function(){
     Route::get('asesor', [App\Http\Controllers\AsesorController::class,'index'])->name('asesor.index');
     Route::get('asesor/create', [App\Http\Controllers\AsesorController::class,'create'])->name('asesor.create');
     Route::post('asesor/post',[App\Http\Controllers\AsesorController::class,'store'])->name('asesor.store');
-
+    Route::delete('asesor/delete/{id}', [App\Http\Controllers\AsesorController::class,'destroy'])->name('asesor.destroy');
+    Route::get('asesor/update/{id}',[App\Http\Controllers\AsesorController::class,'edit'])->name('asesor.update');
 });
