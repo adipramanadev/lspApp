@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nik', 50)->nullable();
             $table->string('nama', 75)->nullable();
-            $table->string('image', 255)->nullable();
+            // $table->string('image', 255)->nullable();
             $table->string('alamat', 50)->nullable();
             $table->string('sex', 50)->nullable();
             $table->string('email', 50)->nullable();
