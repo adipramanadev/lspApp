@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Asesor extends Model
 {
     use HasFactory;
-    protected $table='asesor';
-    protected $guarded =[];
+    protected $table='asesors';
+    // protected $guarded =[];
+    protected $fillable = ['nik', 'nama', 'alamat', 'sex', 'email', 'no_hp', 'status', 'skema'];
+
 }

@@ -26,67 +26,70 @@
                                     @method('PUT')
                                     <div class="form-group">
                                         <label for="nik">NIK</label>
-                                        <input type="text" name="nik" class="form-control"
-                                            value="{{ $asesor->nama }}" maxlength="50" required>
+                                        <input type="text" name="nik" value="{{ $asesor->nik }}"
+                                            class="form-control" value="{{ $asesor->nama }}" maxlength="50" required>
                                         @error('nik')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="nama">Nama</label>
-                                        <input type="text" name="nama" class="form-control" maxlength="75" required>
+                                        <input type="text" name="nama" value="{{ $asesor->nama }}"
+                                            class="form-control" maxlength="75" required>
                                         @error('nama')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label for="image">Foto</label>
-                                        <input type="file" name="image" class="form-control">
-                                        @error('image')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+
                                     <div class="form-group">
                                         <label for="alamat">Alamat</label>
-                                        <input type="text" name="alamat" class="form-control" maxlength="50" required>
+                                        <input type="text" value="{{ $asesor->alamat }}" name="alamat"
+                                            class="form-control" maxlength="50" required>
                                         @error('alamat')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="sex">Jenis Kelamin</label>
-                                        <select name="sex" class="form-control">
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
+                                        <select name="sex" class="form-control" required>
+                                            <option value="Laki-laki" {{ $asesor->sex === 'Laki-laki' ? 'selected' : '' }}>
+                                                Laki-laki</option>
+                                            <option value="Perempuan" {{ $asesor->sex === 'Perempuan' ? 'selected' : '' }}>
+                                                Perempuan</option>
                                         </select>
                                         @error('sex')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" class="form-control" maxlength="50" required>
+                                        <input type="email" name="email" value="{{ $asesor->email }}"
+                                            class="form-control" maxlength="50" required>
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="status">Status</label>
-                                        <input type="text" name="status" class="form-control" maxlength="50">
+                                        <input type="text" name="status" value="{{ $asesor->status }}"
+                                            class="form-control" maxlength="50">
                                         @error('status')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="no_hp">Nomor HP</label>
-                                        <input type="text" name="no_hp" class="form-control" maxlength="20">
+                                        <input type="text" name="no_hp" value="{{ $asesor->no_hp }}"
+                                            class="form-control" maxlength="20">
                                         @error('no_hp')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="skema">Skema</label>
-                                        <input type="text" name="skema" class="form-control" maxlength="50">
+                                        <input type="text" name="skema" value="{{ $asesor->skema }}"
+                                            class="form-control" maxlength="50">
                                         @error('skema')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
