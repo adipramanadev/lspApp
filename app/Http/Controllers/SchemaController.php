@@ -12,7 +12,9 @@ class SchemaController extends Controller
      */
     public function index()
     {
-        //
+        //skema index 
+        $skema = Schema::all();
+        return view('pages.admin.skema.index', compact('skema'),['type_menu' => 'skema']);
     }
 
     /**
